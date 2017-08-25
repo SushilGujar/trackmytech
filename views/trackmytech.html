@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Track My Technician</title
+    <link rel="stylesheet" type="text/css" href="css/map.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP7QQBLEH_KnzUa4cgbEtd44v7cqLk3Fk">
+    </script>
+    <style media="screen">
+    .map {
+      margin: auto;
+      border: 1px solid #666;
+      width: 600px;
+      height: 400px;
+    }
+    </style>
+    <script>
+        function initialize() {
+            var map = new google.maps.Map(
+                document.getElementById('map'), {
+                    zoom: 11,
+                    center: new google.maps.LatLng(36.1583566, -86.77)
+                }
+            );
+
+            var marker = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                title: "Your Location"
+            });
+
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+
+        }
+
+        window.onload = initialize;
+    </script>
+</head>
+
+<body>
+    <div id="map" class="map"></div>
+</body>
+
+</html>
